@@ -1,28 +1,28 @@
 function playFizzBuzz() {
     // Get user input
-    const userInput = document.getElementById("userInput").value;
+    const userInput = parseInt(document.getElementById("userInput").value);
     
-    // Check if the input is a number
-    if (!isNaN(userInput)) {
+    // Check if the input is a valid number
+    if (!isNaN(userInput) && userInput > 0) {
         let result = "";
 
-        // Check for divisibility by 3 and 5
-        if (userInput % 3 === 0) {
-            result += "Fizz";
+        // Generate Fizz Buzz for numbers from 1 to userInput
+        for (let i = 1; i <= userInput; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                result += "FizzBuzz, ";
+            } else if (i % 3 === 0) {
+                result += "Fizz, ";
+            } else if (i % 5 === 0) {
+                result += "Buzz, ";
+            } else {
+                result += i + ", ";
+            }
         }
-        if (userInput % 5 === 0) {
-            result += "Buzz";
-        }
-        if (userInput % 5,3 === 0) {
-            result += "FizzBuzz";
-        }
-        // Display the result in an alert
-        if (result) {
-            alert(result);
-        } else {
-            alert(userInput);
-        }
+
+        // Remove the trailing comma and display the result in an alert
+        result = result.slice(0, -2);
+        alert(result);
     } else {
-        alert("Please enter a valid number.");
+        alert("Please enter a valid number greater than 0.");
     }
 }
