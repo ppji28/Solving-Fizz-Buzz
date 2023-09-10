@@ -13,7 +13,9 @@ function playFizzBuzz() {
         if (userInput % 5 === 0) {
             result += "Buzz";
         }
-
+        if (userInput % 5,3 === 0) {
+            result += "FizzBuzz";
+        }
         // Display the result in an alert
         if (result) {
             alert(result);
